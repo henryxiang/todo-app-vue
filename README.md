@@ -12,3 +12,8 @@
 - Download CSS files from [todomvc-app-template](https://github.com/tastejs/todomvc-app-template) and copy them to `src/assets` folder
 - Create TodoList.vue with template based on todomvc-app-template's index.html
 - Update App.vue to render TodoList component
+
+### Step 2: `git checkout step-2`
+
+- Create `todos` object array in `data()` method
+- Replace static todo list with dynamic rendering using `v-for` and `v-bind` directives

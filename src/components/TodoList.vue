@@ -11,21 +11,20 @@
       <ul class="todo-list">
         <!-- These are here just to show the structure of the list items -->
         <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-        <li class="completed">
+        <li 
+          v-for="todo in todos"
+          v-bind:key="todo.name"
+          v-bind:class="todo.completed ? 'completed' : ''"
+        >
           <div class="view">
-            <input class="toggle" type="checkbox" checked>
-            <label>Taste JavaScript</label>
+            <input
+              class="toggle" type="checkbox" 
+              v-bind:checked="todo.completed"
+            />
+            <label>{{ todo.name }}</label>
             <button class="destroy"></button>
+            <input class="edit" v-bind:value="todo.name" />
           </div>
-          <input class="edit" value="Create a TodoMVC template">
-        </li>
-        <li>
-          <div class="view">
-            <input class="toggle" type="checkbox">
-            <label>Buy a unicorn</label>
-            <button class="destroy"></button>
-          </div>
-          <input class="edit" value="Rule the web">
         </li>
       </ul>
     </section>
@@ -57,5 +56,23 @@ import '../assets/todomvc-app.css'
 
 export default {
   name: 'TodoList',
+  data() {
+    return {
+      todos: [
+        {
+          name: 'Taste JavaScript',
+          completed: true,
+        },
+        {
+          name: 'Buy a unicorn',
+          completed: false,
+        },
+        {
+          name: 'Learn Vue.js',
+          completed: false,
+        },
+      ],
+    }
+  },
 }
 </script>
