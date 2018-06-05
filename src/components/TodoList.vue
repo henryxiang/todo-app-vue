@@ -16,7 +16,7 @@
         <!-- These are here just to show the structure of the list items -->
         <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
         <TodoItem 
-          v-for="todo in todos"
+          v-for="todo in filteredTodos"
           :key="todo.name"
           :todo="todo"
           @delete="deleteTodo"
@@ -32,13 +32,31 @@
       <!-- Remove this if you don't implement routing -->
       <ul class="filters">
         <li>
-          <a class="selected" href="#/">All</a>
+          <a 
+            href="#/all"
+            :class="includedStatus === 'all' ? 'selected' : ''"  
+            @click="setStatusFilter($event, 'all')"
+          >
+            All
+          </a>
         </li>
         <li>
-          <a href="#/active">Active</a>
+          <a 
+            href="#/active"
+            :class="includedStatus === 'active' ? 'selected' : ''"  
+            @click="setStatusFilter($event, 'active')"
+          >
+            Active
+          </a>
         </li>
         <li>
-          <a href="#/completed">Completed</a>
+          <a 
+            href="#/completed"
+            :class="includedStatus === 'completed' ? 'selected' : ''"  
+            @click="setStatusFilter($event, 'completed')"
+          >
+            Completed
+          </a>
         </li>
       </ul>
       <!-- Hidden if no completed items are left ↓ -->
@@ -74,6 +92,7 @@ export default {
         },
       ],
       nextItem: '',
+      includedStatus: '',
     }
   },
   methods: {
@@ -96,10 +115,23 @@ export default {
       t.completed = !t.completed;
       this.todos[index] = t;
     },
+    setStatusFilter(event, includedStatus) {
+      this.includedStatus = includedStatus;
+    },
   },
   computed: {
     completedTodos() {
       return this.todos.filter((t) => !t.completed).length;
+    },
+    filteredTodos() {
+      switch (this.includedStatus) {
+        case 'active':
+          return this.todos.filter((t) => !t.completed);
+        case 'completed':
+          return this.todos.filter((t) => t.completed);
+        default:
+          return this.todos;
+      }
     },
   },
 }
