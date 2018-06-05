@@ -40,3 +40,8 @@
 - Emit custom `toggle` event when the checkbox is checked
 - Add `toggle` event listener to TodoItem tag
 - Create callback functin to handle `toggle` event and change the status of the specified todo item
+
+### Step 7: `git checkout step-7`
+
+- Add computed property `completedTodos` to calculate completed todo items
+- Bind item left counter to `completedTodos`

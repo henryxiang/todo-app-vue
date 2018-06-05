@@ -28,7 +28,7 @@
     <!-- This footer should hidden by default and shown when there are todos -->
     <footer class="footer">
       <!-- This should be `0 items left` by default -->
-      <span class="todo-count"><strong>0</strong> item left</span>
+      <span class="todo-count"><strong>{{ completedTodos }}</strong> item left</span>
       <!-- Remove this if you don't implement routing -->
       <ul class="filters">
         <li>
@@ -95,6 +95,11 @@ export default {
       const t = this.todos[index];
       t.completed = !t.completed;
       this.todos[index] = t;
+    },
+  },
+  computed: {
+    completedTodos() {
+      return this.todos.filter((t) => !t.completed).length;
     },
   },
 }
