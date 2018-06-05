@@ -17,3 +17,8 @@
 
 - Create `todos` object array in `data()` method
 - Replace static todo list with dynamic rendering using `v-for` and `v-bind` directives
+
+### Step 3: `git checkout step-3`
+
+- Create TodoItem.vue to render individual todo list item
+- Refactor TodoList.vue to compose template with TodoItem sub-component

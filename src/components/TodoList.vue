@@ -11,22 +11,13 @@
       <ul class="todo-list">
         <!-- These are here just to show the structure of the list items -->
         <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-        <li 
-          v-for="todo in todos"
-          v-bind:key="todo.name"
-          v-bind:class="todo.completed ? 'completed' : ''"
-        >
-          <div class="view">
-            <input
-              class="toggle" type="checkbox" 
-              v-bind:checked="todo.completed"
-            />
-            <label>{{ todo.name }}</label>
-            <button class="destroy"></button>
-            <input class="edit" v-bind:value="todo.name" />
-          </div>
-        </li>
+        <TodoItem
+          v-for="todo in todos" 
+          :key="todo.name" 
+          :todo="todo"
+        />
       </ul>
+      <!-- <TodoItem :todo="Object.assign(todos[0])" /> -->
     </section>
     <!-- This footer should hidden by default and shown when there are todos -->
     <footer class="footer">
@@ -53,9 +44,13 @@
 <script>
 import '../assets/todomvc-common.css'
 import '../assets/todomvc-app.css'
+import TodoItem from './TodoItem.vue'
 
 export default {
   name: 'TodoList',
+  components: {
+    TodoItem,
+  },
   data() {
     return {
       todos: [
