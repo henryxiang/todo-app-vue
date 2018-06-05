@@ -22,3 +22,9 @@
 
 - Create TodoItem.vue to render individual todo list item
 - Refactor TodoList.vue to compose template with TodoItem sub-component
+
+### Step 4: `git checkout step-4`
+
+- Bind form input to `nextItem` variable using `v-model` directive (two-way data binding)
+- Add `keyup` event listener to input field
+- Create callback function to handle `keyup` event and add new todo item

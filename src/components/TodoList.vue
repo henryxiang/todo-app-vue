@@ -2,7 +2,11 @@
   <section class="todoapp">
     <header class="header">
       <h1>todos</h1>
-      <input class="new-todo" placeholder="What needs to be done?" autofocus>
+      <input 
+        class="new-todo" placeholder="What needs to be done?" autofocus 
+        v-model="nextItem"
+        @keyup.enter="addTodo"
+      />
     </header>
     <!-- This section should be hidden by default and shown when there are todos -->
     <section class="main">
@@ -11,9 +15,9 @@
       <ul class="todo-list">
         <!-- These are here just to show the structure of the list items -->
         <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-        <TodoItem
+        <TodoItem 
           v-for="todo in todos" 
-          :key="todo.name" 
+          :key="todo.name"
           :todo="todo"
         />
       </ul>
@@ -67,6 +71,16 @@ export default {
           completed: false,
         },
       ],
+      nextItem: '',
+    }
+  },
+  methods: {
+    addTodo() {
+      this.todos.push({
+        name: this.nextItem,
+        completed: false,
+      });
+      this.nextItem = '';
     }
   },
 }
