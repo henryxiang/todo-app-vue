@@ -4,7 +4,7 @@
       <h1>todos</h1>
       <input 
         class="new-todo" placeholder="What needs to be done?" autofocus 
-        v-model="nextItem"
+        v-model="nextItem" 
         @keyup.enter="addTodo"
       />
     </header>
@@ -20,6 +20,7 @@
           :key="todo.name"
           :todo="todo"
           @delete="deleteTodo"
+          @toggle="toggleTodo"
         />
       </ul>
       <!-- <TodoItem :todo="Object.assign(todos[0])" /> -->
@@ -86,7 +87,15 @@ export default {
     deleteTodo(todo) {
       const index = this.todos.map((t) => t.name).indexOf(todo.name);
       this.todos.splice(index, 1);
-    }
+    },
+    toggleTodo(todo) {
+      const index = this.todos
+            .map((t) => t.name)
+            .indexOf(todo.name);
+      const t = this.todos[index];
+      t.completed = !t.completed;
+      this.todos[index] = t;
+    },
   },
 }
 </script>

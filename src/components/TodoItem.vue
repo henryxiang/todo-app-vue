@@ -1,9 +1,10 @@
 <template>
   <li :class="todo.completed ? 'completed' : ''">
     <div class="view">
-      <input 
-        class="toggle" type="checkbox" 
+      <input
+        class="toggle" type="checkbox"
         :checked="todo.completed"
+        @change="$emit('toggle', todo)"
       />
       <label>{{ todo.name }}</label>
       <button 

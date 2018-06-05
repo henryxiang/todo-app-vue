@@ -34,3 +34,9 @@
 - Emit custom `delete` event when the delete link is clicked
 - Add `delete` event listener to TodoItem tag
 - Create callback functin to handle `delete` event and remove the specified todo item
+
+### Step 6: `git checkout step-6`
+
+- Emit custom `toggle` event when the checkbox is checked
+- Add `toggle` event listener to TodoItem tag
+- Create callback functin to handle `toggle` event and change the status of the specified todo item
