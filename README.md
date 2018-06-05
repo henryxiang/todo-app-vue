@@ -9,13 +9,13 @@
 
 ### Step 1: `git checkout step-1`
 
-- Download CSS files from [todomvc-app-template](https://github.com/tastejs/todomvc-app-template) and copy them to `src/assets` folder
-- Create TodoList.vue with template based on todomvc-app-template's index.html
+- Download CSS files from [todomvc-app-template]() and copy them to `src/assets` folder
+- Create TodoList.vue with template based on todomvc-app-template index.html
 - Update App.vue to render TodoList component
 
 ### Step 2: `git checkout step-2`
 
-- Create `todos` object array in `data()` method
+- Create `todos` object array
 - Replace static todo list with dynamic rendering using `v-for` and `v-bind` directives
 
 ### Step 3: `git checkout step-3`
@@ -51,3 +51,8 @@
 - Created a computed property `filteredTodos` to retrieve filtered todo list based on todo status
 - Add `click` event listener to all filter buttons
 - Create parameterized callback function to handle filter button `click` events and change filter setting
+
+### Step 9: `git checkout step-9`
+
+- Add `click` event listener to `Clear completed` button
+- Create callback function to handle `click` event and remove all completed todo items

@@ -60,7 +60,12 @@
         </li>
       </ul>
       <!-- Hidden if no completed items are left ↓ -->
-      <button class="clear-completed">Clear completed</button>
+      <button
+        class="clear-completed"
+        @click="clearCompleted"
+      >
+        Clear completed
+      </button>
     </footer>
   </section>
 </template>
@@ -117,6 +122,9 @@ export default {
     },
     setStatusFilter(event, includedStatus) {
       this.includedStatus = includedStatus;
+    },
+    clearCompleted() {
+      this.todos = this.todos.filter((t) => !t.completed);
     },
   },
   computed: {
