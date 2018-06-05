@@ -16,9 +16,10 @@
         <!-- These are here just to show the structure of the list items -->
         <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
         <TodoItem 
-          v-for="todo in todos" 
+          v-for="todo in todos"
           :key="todo.name"
           :todo="todo"
+          @delete="deleteTodo"
         />
       </ul>
       <!-- <TodoItem :todo="Object.assign(todos[0])" /> -->
@@ -81,6 +82,10 @@ export default {
         completed: false,
       });
       this.nextItem = '';
+    },
+    deleteTodo(todo) {
+      const index = this.todos.map((t) => t.name).indexOf(todo.name);
+      this.todos.splice(index, 1);
     }
   },
 }

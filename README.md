@@ -28,3 +28,9 @@
 - Bind form input to `nextItem` variable using `v-model` directive (two-way data binding)
 - Add `keyup` event listener to input field
 - Create callback function to handle `keyup` event and add new todo item
+
+### Step 5: `git checkout step-5`
+
+- Emit custom `delete` event when the delete link is clicked
+- Add `delete` event listener to TodoItem tag
+- Create callback functin to handle `delete` event and remove the specified todo item
