@@ -61,5 +61,5 @@
 
 - [Veu.js official docs](https://vuejs.org/v2/guide/)
 - [veu-router](https://github.com/vuejs/vue-router)
-- [veux - Vue.js state management](https://github.com/vuejs/vuex)
+- [veux: Vue.js state management](https://github.com/vuejs/vuex)
 - [Awesome Vue.js](https://github.com/vuejs/awesome-vue)
