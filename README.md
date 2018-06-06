@@ -56,3 +56,10 @@
 
 - Add `click` event listener to `Clear completed` button
 - Create callback function to handle `click` event and remove all completed todo items
+
+### Learn More
+
+- [Veu.js official docs](https://vuejs.org/v2/guide/)
+- [veu-router](https://github.com/vuejs/vue-router)
+- [veux - Vue.js state management](https://github.com/vuejs/vuex)
+- [Awesome Vue.js](https://github.com/vuejs/awesome-vue)
